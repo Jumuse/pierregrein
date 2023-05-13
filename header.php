@@ -1,5 +1,5 @@
 <header>
-    <img src="Images/Logo Light.png" alt="Logo">
+    <img src="Images/Logos/Logo Light.png" alt="Logo">
 
     <nav role="navigation">
         <div id="menuFullScreen">

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link href="Style/footer-style.css" rel="stylesheet" type="text/css" />
     <title>Restaurant Quai Antique</title>
 </head>
 
@@ -66,13 +66,9 @@
 
 <style>
     body {
+        margin: 0;
         font-family: system-ui, -apple-system, BlinkMacSystemFont, 'MontSerrat', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     }
-    .bloc1, .bloc2 {
-        padding-left: 1px;
-        padding-right: 1px;
-    }
-
     .bloc1 {
         background: white;
     }
@@ -87,6 +83,7 @@
 
     p {
         font-size: 25px;
+        word-wrap: break-word;
     }
     .container {
         position: relative;
@@ -125,7 +122,9 @@
         padding: 40%;
         font-family: 'Lora', serif;
     }
-
+    img {
+        max-width: 100%;
+    }
     @media screen and (min-width:640px){
         .bloc1, .bloc2 {
             padding: 15em;
