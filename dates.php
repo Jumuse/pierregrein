@@ -10,13 +10,15 @@ function dateToFrench($date, $format)
     return str_replace($english_months, $french_months, str_replace($english_days, $french_days, date($format, strtotime($date))));
 };
 
+$weekHours = "12h-14h & 19h-22h";
+$wednesday = "le restaurant est fermé";
+$saturdayHours = "19h - 23h";
+$sundayHours = "12h - 14h";
 
 function retrieveDate() {
-    $weekHours = "12h-14h et de 19h-22h";
-    $saturdayHours = "19h à 23h";
-    $sundayHours = "12h à 14h";
     $date = date('l');
     $dayOfWeek = date('w', strtotime($date));
+    global $weekHours, $wednesday, $saturdayHours, $sundayHours;
 
     if ($dayOfWeek == 1 || $dayOfWeek == 2 || $dayOfWeek == 4 || $dayOfWeek == 5) 
     {
@@ -29,6 +31,6 @@ function retrieveDate() {
             echo "le restaurant est ouvert de ". $sundayHours;
     } else if ($dayOfWeek == 3) 
     {
-        echo "le restaurant est fermé.";
+        echo $wednesday;
     }
 };

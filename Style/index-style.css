@@ -30,10 +30,15 @@ body {
     background: #B6AC97;
     padding-bottom: 2em;
 }
-
+h1 {
+    font-size: 50px;
+    padding: 1em 0 1em;
+    color: #392C1E;
+}
 h2 {
     font-size: 42px;
     padding: 1em 0 1em;
+    color: #392C1E;
 }
 
 p {
@@ -140,7 +145,6 @@ img {
     }
     h2 {
         padding-bottom: 2em;
-        color: #392C1E;
     }
     .index-button button {
     padding: 10% 20% 10% 20%;

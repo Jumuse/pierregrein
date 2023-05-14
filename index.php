@@ -65,7 +65,7 @@
             </div>
         </div>
 
-        <a href="#"  class="index-button">
+        <a href="reservation.php"  class="index-button">
             <button type="button">Réserver</button>
         </a>
 

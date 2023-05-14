@@ -2,25 +2,25 @@
     
 
     <nav class="navbar">
-        <a href="#" class="nav-branding">
+        <a href="index.php" class="nav-branding">
             <img src="Images/Logos/Logo Light.png" alt="Logo">
         </a>
 
             <ul class="nav-menu">
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Carte</a>
+                    <a href="carte.php" class="nav-link">Carte</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Menu</a>
+                    <a href="menu.php" class="nav-link">Menu</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Galerie</a>
+                    <a href="galerie.php" class="nav-link">Galerie</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Contact</a>
+                    <a href="Contact.php" class="nav-link">Contact</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Réserver</a>
+                    <a href="reservation.php" class="nav-link">Réserver</a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">Se connecter</a>
