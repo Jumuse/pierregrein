@@ -2,6 +2,21 @@ body {
     margin: 0;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'MontSerrat', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+.background-picture {
+    display: none;
+}
+.m-background-picture {
+    position: absolute;
+    width: 100%;
+    object-fit: contain;
+}
+.logo-background {
+    position: relative;
+    top: -50%;
+    max-width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+}
 .bloc1 {
     background: white;
 }
@@ -88,6 +103,19 @@ img {
         display: flex;
         justify-content: space-around;
         align-items: center;
+    }
+    .m-background-picture {
+        display: none;
+    }
+    .background-picture {
+        display: block;
+        width: 100%;
+        object-fit: contain;
+    }
+    .logo-background {
+        top: -1000px;
+        width: 50%;
+        left: 550px;
     }
     .imgB1 {
         display: block;

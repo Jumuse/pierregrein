@@ -18,6 +18,13 @@
         include "header.php";
     ?>
 
+    <div class="frontPicture">
+        <img src="Images/background.jpg" class="background-picture" alt="Salade">
+        <img src="Images/m-background.jpg" class="m-background-picture" alt="Salade">
+        <span>
+            <img src="Images/Logos/Extra Light.png" class="logo-background" alt="Logo">
+        </span>
+    </div>
     <div class="bloc1">
         <img src="Images/chef.jpg" class="imgB1" alt='Le Chef'>
         <div class="wrapper">        
