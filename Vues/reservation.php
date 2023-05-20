@@ -25,8 +25,8 @@
 
     <div class="formulaire">
 
-    <form action="#" method="post">
-        <div>
+    <form action="Back/process-form.php" method="post">
+        <div class="wraps">
         <select name="couverts" id="nbrcouverts">
             <option value="two">2 couverts</option>
             <option value="three">3 couverts</option>
@@ -39,34 +39,34 @@
             <input type="date" id="date" name="user_date">
         </div>
         
-        <div>
+        <div class="wraps">
             <label for="time">heure&nbsp;:</label>
             <input type="time" id="time" name="user_time">
         </div>
         
         
-        <div>
+        <div class="wraps">
             <label for="name">Nom :</label>
             <input type="text" id="name" name="user_name">
         </div>
 
-        <div>
+        <div class="wraps">
             <label for="mail">e-mail&nbsp;:</label>
             <input type="email" id="mail" name="user_mail">
         </div>
 
-        <div>
+        <div class="wraps">
             <label for="telephone">téléphone&nbsp;:</label>
             <input type="telephone" id="telephone" name="user_telephone">
         </div>
 
         <div>
-        <input type="checkbox" id="allergies" name="allergies">
-        <label for="allergies">Si vous souffrez d'allergies, merci de préciser le ou les aliments que vous ne pouvez pas consommer :</label>
-        <br>
-            <textarea id="msg-allergies" name="user_allergies"></textarea>
+            <input type="checkbox" id="allergies" name="is_allergic">
+            <label for="allergies">Si vous souffrez d'allergies, merci de préciser le ou les aliments que vous ne pouvez pas consommer :</label>
+            <br>
+                <textarea id="msg-allergies" name="allergies"></textarea>
         </div>
-        <input type="button" value="Envoyer">
+        <input type="submit" value="Envoyer">
     </form>
 
     </div>
@@ -79,9 +79,25 @@
 
 <script src="script.js"></script>
 <style>
+    .title-wrapper {
+        text-align: center;
+        padding-bottom: 3em;
+    }
     .timesWrap {
         display: flex;
         justify-content: space-around;
+    }
+    .formulaire {
+        display: flex;
+        justify-content: center;
+    }
+    form {
+        display: block;
+        padding: 3%;
+    }
+    .wraps {
+        display: flex;
+        flex-direction: column;
     }
 </style>
 
