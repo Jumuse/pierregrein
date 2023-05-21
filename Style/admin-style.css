@@ -7,7 +7,7 @@ h1 {
     margin: 5px;
     text-align: center;
 }
-.container {
+.content, .photos-wrapper {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -15,7 +15,6 @@ h1 {
     justify-content: center;
     min-height: 100vh;
     position: relative;
-    padding-bottom: 20px;
 }
 .Btn_add {
     width: fit-content;

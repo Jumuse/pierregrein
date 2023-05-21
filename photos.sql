@@ -124,10 +124,7 @@ VALUES (7, NULL, NULL, '19:00:00', '23:00:00', 1, 1);
  );
 
 CREATE TABLE reservation (
-	id INT NOT NULL PRIMARY KEY,
-  /* reservation can be seen by admin -- one-to-many */
-	is_seen_by INT NOT NULL,
-  	FOREIGN KEY(is_seen_by) REFERENCES admin(user_id),
+	id(255) INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
    /* reservation books a table -- one-to-one*/
   	couverts INT NOT NULL,
   	FOREIGN KEY(couverts) REFERENCES tables(id),
@@ -138,8 +135,4 @@ CREATE TABLE reservation (
   /* reservation needs access to timetables of the restaurant -- one-to-one*/
   	time_row TINYINT NOT NULL,
   	FOREIGN KEY(time_row) REFERENCES timetables(day_id),
-
-  /* one user can make several reservations -- one-to-many */
-  	user_info INT,
-  	FOREIGN KEY(user_info) REFERENCES users(id)
 );

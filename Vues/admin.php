@@ -48,6 +48,8 @@ include_once "../Back/connexion.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant Quai Antique</title>
     <link rel="stylesheet" href="../Style/admin-style.css">
+    <link rel="stylesheet" href="../Style/index-style.css">
+    <link rel="stylesheet" href="../Style/header-style.css">
 </head>
 
 
@@ -55,7 +57,47 @@ include_once "../Back/connexion.php";
   
 <h1>Bienvenue, Admin</h1>
 
-<div class="container">
+<div class="content">
+        <h2>Voir les réservations</h2>
+        <a href="../Back/add-foodmenu.php" class="Btn_add"> <img src="../photos/Logos/plus.png"> Ajouter</a>
+        
+        <table>
+            <tr id="items">
+                <th>Nombre de couverts</th>
+                <th>Date</th>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Téléphone</th>
+                <th>Supprimer</th>
+            </tr>
+            <?php 
+
+                $req = mysqli_query($con , "SELECT * FROM reservation");
+                if(mysqli_num_rows($req) == 0){
+                    echo "Il n'y a aucune réservation enregistrée !" ;
+                    
+                }else {
+                    while($row=mysqli_fetch_assoc($req)){
+                        ?>
+                        <tr>
+                            <td><?=$row['couverts']?></td>
+                            <td><?=$row['date']?></td>
+                            <td><?=$row['name']?></td>
+                            <td><?=$row['email']?></td>
+                            <td><?=$row['telephone']?></td>
+
+                            <td><a href="../Back/resa-suppression.php?id=<?=$row['id']?>" onclick="return(confirm('Confirmez-vous la suppression ?'));"><img src="../photos/Logos/bin.png"></a></td>
+                        </tr>
+                        <?php
+                    }
+                    
+                }
+            ?>
+      
+        </table>
+</div>
+
+<div class="content">
     <h2>Modifier la Carte</h2>
         <a href="../Back/add-meal.php" class="Btn_add"> <img src="../photos/Logos/plus.png"> Ajouter</a>
         
@@ -95,7 +137,7 @@ include_once "../Back/connexion.php";
          
         </table>
 
-    <div class="container">
+    <div class="content">
         <h2>Modifier les Menus et Formules</h2>
         <a href="../Back/add-foodmenu.php" class="Btn_add"> <img src="../photos/Logos/plus.png"> Ajouter</a>
         
@@ -135,9 +177,10 @@ include_once "../Back/connexion.php";
          
         </table>
 
-<div class="container">
+<div class="content">
     <h2>Modifier les photos de la galerie</h2>
     <a href="../Back/liste-photos.php" class="link">Liste des photos</a>
+    <br><br>
     <table>
         <tr id="items">
             <th>Nom de l'image</th>
@@ -171,7 +214,7 @@ include_once "../Back/connexion.php";
 
     </table>
 
-
+    <div class="photos-wrapper">
         <p class="error">
             <?php 
             if(isset($message)) echo $message ;
@@ -194,54 +237,12 @@ include_once "../Back/connexion.php";
                      
         </form>
     </div>
-
-<div class="container">
-    <div class="resaCheck">
-        <h2>Voir les réservations</h2>
-        <a href="../Back/add-foodmenu.php" class="Btn_add"> <img src="../photos/Logos/plus.png"> Ajouter</a>
-        
-        <table>
-            <tr id="items">
-                <th>Nombre de couverts</th>
-                <th>Date</th>
-                <th>Nom</th>
-                <th>Email</th>
-                <th>Téléphone</th>
-                <th>Supprimer</th>
-            </tr>
-            <?php 
-
-                $req = mysqli_query($con , "SELECT * FROM reservation");
-                if(mysqli_num_rows($req) == 0){
-                    echo "Il n'y a aucune réservation enregistrée !" ;
-                    
-                }else {
-                    while($row=mysqli_fetch_assoc($req)){
-                        ?>
-                        <tr>
-                            <td><?=$row['couverts']?></td>
-                            <td><?=$row['date']?></td>
-                            <td><?=$row['name']?></td>
-                            <td><?=$row['email']?></td>
-                            <td><?=$row['telephone']?></td>
-
-                            <td><a href="../Back/resa-suppression.php?id=<?=$row['id']?>" onclick="return(confirm('Confirmez-vous la suppression ?'));"><img src="../photos/Logos/bin.png"></a></td>
-                        </tr>
-                        <?php
-                    }
-                    
-                }
-            ?>
-      
-         
-        </table>
-    </div>
 </div>
 
 
 
-<script>
 
+<script>
 </script>
 
 </body>

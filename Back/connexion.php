@@ -4,5 +4,5 @@
   if(!$con){
      echo "Vous n'êtes pas connecté à la base de donnée";
   } 
-return $con;
+  return $con;
 ?>

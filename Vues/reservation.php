@@ -1,20 +1,32 @@
 <?php
-       if(isset($_POST['button'])){
-           extract($_POST);
-           if(isset($couverts) && isset($date) && isset($email) && isset($telephone)){
-                include_once "connexion.php";
-                $req = mysqli_query($con , "INSERT INTO reservation VALUES(NULL, '$couverts', '$date','$name','$email', '$telephone')");
-                if($req){
-                    echo 'Merci pour votre réservation.';
-                }else {
-                    $message = "Le plat n'a pas pu être ajouté.";
-                }
-           }else {
-               $message = "Veuillez remplir tous les champs !";
-           }
+    include "header.php";
+       $couverts=$_POST['couverts'];
+       $date=$_POST['date'];
+       $name=$_POST['name'];
+       $email=$_POST['email'];
+       $telephone=$_POST['telephone'];
+       
+       try{
+           //On se connecte à la BDD
+           $pdo = new PDO("mysql:host=localhost;dbname=restaurant", 'root','root');
+           $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+           //On insère les données reçues
+           $sth = $pdo->prepare("INSERT INTO reservation (couverts, date, name, email, telephone) VALUES(:couverts, :date, :name, :email, :telephone)");
+           $sth->bindParam(':couverts',$couverts);
+           $sth->bindParam(':date',$date);
+           $sth->bindParam(':name',$name);
+           $sth->bindParam(':email',$email);
+           $sth->bindParam(':telephone',$telephone);
+           $sth->execute();
+           
+           echo '<h4>Votre réservation a bien été enregistrée !</h4>';
        }
+       catch(PDOException $e){
+           echo 'Impossible de traiter les données. Erreur : '.$e->getMessage();
+       }
+   ?>
     
-?>
+
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -31,10 +43,6 @@
 
 
 <body>
-  
-    <?php
-        include "header.php";
-    ?>
 
     <div class="title-wrapper">
         <h1>Réservation</h1>
@@ -43,33 +51,33 @@
 
     <div class="formulaire">
 
-    <form action="" method="post">
+    <form action="" method="POST">
         <div class="wraps">
-        <label for="couverts">Nombre de couverts :</label>
-        <select name="couverts" id="nbrcouverts">
-            <option value="two">2 couverts</option>
-            <option value="three">3 couverts</option>
-            <option value="four">4 couverts</option>
-            <option value="five">5 couverts</option>
-            <option value="six">6 couverts</option>
-        </select>
+            <label for="couverts">Nombre de couverts</label>
+            <select name="couverts" id="nbrcouverts">
+                <option value="2">2 couverts</option>
+                <option value="3">3 couverts</option>
+                <option value="4">4 couverts</option>
+                <option value="5">5 couverts</option>
+                <option value="6">6 couverts</option>
+            </select>
 
-        <label for="date">Date&nbsp;:</label>
+        <label for="date">Date&nbsp;</label>
             <input type="date" id="date" name="date">
         </div>
    
         <div class="wraps">
-            <label for="name">Nom :</label>
+            <label for="name">Nom</label>
             <input type="text" id="name" name="name">
         </div>
 
         <div class="wraps">
-            <label for="email">E-mail :&nbsp;:</label>
-            <input type="email" id="email" name="mail">
+            <label for="email">E-mail&nbsp;</label>
+            <input type="email" id="email" name="email">
         </div>
 
         <div class="wraps">
-            <label for="telephone">Téléphone :&nbsp;:</label>
+            <label for="telephone">Téléphone&nbsp;</label>
             <input type="telephone" id="telephone" name="telephone">
         </div>
 
