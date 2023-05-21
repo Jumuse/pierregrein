@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="Style/footer-style.css" rel="stylesheet" type="text/css" />
-    <link href="Style/header-style.css" rel="stylesheet" type="text/css" />
-    <link href="Style/index-style.css" rel="stylesheet" type="text/css" />
+    <link href="../Style/footer-style.css" rel="stylesheet" type="text/css" />
+    <link href="../Style/header-style.css" rel="stylesheet" type="text/css" />
+    <link href="../Style/index-style.css" rel="stylesheet" type="text/css" />
     <title>Restaurant Quai Antique</title>
 </head>
 
@@ -20,104 +20,127 @@
 
     <h1>La Carte</h1>
 
-    <div class="carteWrapper">
-        <div class="entreeWrapper">
-            <h2>Les entrées</h2>
-            <div class="entree">
-                <p>PLAT1</p>
-                <p>PLAT2</p>
-                <p>PLAT3</p>
-                <p>PLAT4</p>
-                <p>PLAT5</p>
-                <p>PLAT6</p>
-                <p>PLAT7</p>
-            </div>
-
-            <div class="entreeprice">
-                <p><?php  ?></p>
-                <p><?php  ?></p>
-                <p><?php  ?></p>
-                <p><?php  ?></p>
-                <p><?php  ?></p>
-                <p><?php  ?></p>
-                <p><?php  ?></p>
-            </div>
-        </div>
-
-        <div class="viandesWrapper">
-            <h2>Les viandes</h2>
-            <div class="viandes">
-                <p>PLAT1</p>
-                <p>PLAT2</p>
-                <p>PLAT3</p>
-                <p>PLAT4</p>
-                <p>PLAT5</p>
-                <p>PLAT6</p>
-                <p>PLAT7</p>
-            </div>
-
-            <div class="viandesprice">
-                <p><?php  ?></p>
-                <p><?php  ?></p>
-                <p><?php  ?></p>
-                <p><?php  ?></p>
-                <p><?php  ?></p>
-                <p><?php  ?></p>
-                <p><?php  ?></p>
-            </div>
-        </div>
-
-        <div class="poissonsWrapper">
-            <h2>Les poissons</h2>
-            <div class="poissons">
-                <p>PLAT1</p>
-                <p>PLAT2</p>
-                <p>PLAT3</p>
-                <p>PLAT4</p>
-                <p>PLAT5</p>
-                <p>PLAT6</p>
-                <p>PLAT7</p>
-            </div>
-
-            <div class="poissonsprice">
-                <p><?php  ?></p>
-                <p><?php  ?></p>
-                <p><?php  ?></p>
-                <p><?php  ?></p>
-                <p><?php  ?></p>
-                <p><?php  ?></p>
-                <p><?php  ?></p>
-            </div>
-        </div>
-
-        <div class="dessertWrapper">
-            <h2>Les desserts</h2>
-            <div class="dessert">
-                <p>PLAT1</p>
-                <p>PLAT2</p>
-                <p>PLAT3</p>
-                <p>PLAT4</p>
-                <p>PLAT5</p>
-                <p>PLAT6</p>
-                <p>PLAT7</p>
-            </div>
-
-            <div class="dessertprice">
-                <p><?php  ?></p>
-                <p><?php  ?></p>
-                <p><?php  ?></p>
-                <p><?php  ?></p>
-                <p><?php  ?></p>
-                <p><?php  ?></p>
-                <p><?php  ?></p>
-            </div>
-        </div>
-
-
-
-
+    <div class="container first-container">
+    
+        <h2>Les Entrées</h2>
+        
+        <table>
+            <tr id="items">
+                <th>Nom du plat</th>
+                <th>Description</th>
+                <th>Prix</th>
+            </tr>
+            <?php 
+                include_once "../Back/connexion.php";
+                $req = mysqli_query($con , "SELECT title, description, price FROM carte WHERE category = 'Entrées'");
+                if(mysqli_num_rows($req) == 0){
+                    echo "Notre chef est en pleine réflexion quant à nos prochaines créations. <br> Elles seront bientôt affichées pour votre plus grand bonheur !" ;
+                }else {
+                    while($row=mysqli_fetch_assoc($req)){
+                        ?>
+                        <tr>
+                            <td><?=$row['title']?></td>
+                            <td><?=$row['description']?></td>
+                            <td><?=$row['price']?></td>
+                        </tr>
+                        <?php
+                    }
+                    
+                }
+            ?>  
+        </table>
     </div>
 
+
+    <div class="container second-container">
+    
+    <h2>Les Viandes</h2>
+    
+    <table>
+        <tr id="items">
+            <th>Nom du plat</th>
+            <th>Description</th>
+            <th>Prix</th>
+        </tr>
+        <?php 
+            $req = mysqli_query($con , "SELECT title, description, price FROM carte WHERE category = 'Viandes'");
+            if(mysqli_num_rows($req) == 0){
+                echo "Notre chef est en pleine réflexion quant à nos prochaines créations. <br> Elles seront bientôt affichées pour votre plus grand bonheur !" ;
+            }else {
+                while($row=mysqli_fetch_assoc($req)){
+                    ?>
+                    <tr>
+                        <td><?=$row['title']?></td>
+                        <td><?=$row['description']?></td>
+                        <td><?=$row['price']?></td>
+                    </tr>
+                    <?php
+                }
+                
+            }
+        ?>  
+    </table>
+</div>
+
+    <div class="container third-container">
+    
+    <h2>Les Poissons</h2>
+    
+    <table>
+        <tr id="items">
+            <th>Nom du plat</th>
+            <th>Description</th>
+            <th>Prix</th>
+        </tr>
+        <?php 
+            $req = mysqli_query($con , "SELECT title, description, price FROM carte WHERE category = 'Poissons'");
+            if(mysqli_num_rows($req) == 0){
+                echo "Notre chef est en pleine réflexion quant à nos prochaines créations. <br> Elles seront bientôt affichées pour votre plus grand bonheur !" ;
+            }else {
+                while($row=mysqli_fetch_assoc($req)){
+                    ?>
+                    <tr>
+                        <td><?=$row['title']?></td>
+                        <td><?=$row['description']?></td>
+                        <td><?=$row['price']?></td>
+                    </tr>
+                    <?php
+                }
+                
+            }
+        ?>  
+    </table>
+</div>
+
+<div class="container fourth-container">
+    
+    <h2>Les Desserts</h2>
+    
+    <table>
+        <tr id="items">
+            <th>Nom du plat</th>
+            <th>Description</th>
+            <th>Prix</th>
+        </tr>
+        <?php 
+            $req = mysqli_query($con , "SELECT title, description, price FROM carte WHERE category = 'Desserts'");
+            if(mysqli_num_rows($req) == 0){
+                echo "Notre chef est en pleine réflexion quant à nos prochaines créations. <br> Elles seront bientôt affichées pour votre plus grand bonheur !" ;
+            }else {
+                while($row=mysqli_fetch_assoc($req)){
+                    ?>
+                    <tr>
+                        <td><?=$row['title']?></td>
+                        <td><?=$row['description']?></td>
+                        <td><?=$row['price']?></td>
+                    </tr>
+                    <?php
+                }
+                
+            }
+        ?>  
+    </table>
+</div>
 
 <?php
     include "footer.php";

@@ -38,13 +38,13 @@ CREATE TABLE admin (
 VALUES (true, 1, 1);
  
  CREATE TABLE carte (
-	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	id INT PRIMARY KEY AUTO_INCREMENT,
  	title VARCHAR(45) NOT NULL,
    	category VARCHAR(20) NOT NULL,
    	description VARCHAR(45) NOT NULL,
    	price FLOAT NOT NULL,
    /* carte can be modified by admin */
-   	is_dealt_by INT NOT NULL,
+   	is_dealt_by INT,
   	FOREIGN KEY(is_dealt_by) REFERENCES admin(user_id)
  );
 
@@ -52,13 +52,11 @@ VALUES (true, 1, 1);
  VALUES (1, 'salade test', 'salades', 'une salade', 11.50, 1 );
  
  CREATE TABLE foodmenu (
- 	menu_title VARCHAR(20) NOT NULL PRIMARY KEY,
+	id INT PRIMARY KEY AUTO_INCREMENT,
+ 	menu_title VARCHAR(20) NOT NULL,
    	formula_title VARCHAR(20) NOT NULL,
    	formula_description VARCHAR(45) NOT NULL,
-   	formula_price FLOAT NOT NULL,
-   /* carte items are organised in menus and formulas/one items can be displayed in different menus and formulas -- one-to-many */
-   	organised_in VARCHAR(45),
-   	FOREIGN KEY(organised_in) REFERENCES carte(id)
+   	formula_price FLOAT NOT NULL
  );
   
  CREATE TABLE gallery (
@@ -70,12 +68,12 @@ VALUES (true, 1, 1);
  );
  
  CREATE TABLE photos (
- 	name VARCHAR(60) NOT NULL PRIMARY KEY,
-   	title VARCHAR(20) NOT NULL,
+	id INT PRIMARY KEY,
+ 	name VARCHAR(1000) NOT NULL,
    	description VARCHAR(45) NOT NULL,
    /* photos are displayed in a category within the gallery */
-   	displayed_in INT NOT NULL,
-   	FOREIGN KEY(displayed_in) REFERENCES gallery(id)
+   	category INT NOT NULL,
+   	FOREIGN KEY(category) REFERENCES gallery(id)
  );
 
  INSERT INTO photos (name, title, description, displayed_in)
@@ -88,10 +86,10 @@ CREATE TABLE timetables (
     opening_time_evening TIME,
     closing_time_evening TIME,
   /* several timetables available for the one restaurant -- one-to-many */
-  	time_setting INT NOT NULL,
+  	time_setting INT,
   	FOREIGN KEY(time_setting) REFERENCES restaurant(id),
    /* timetables can be modified by admin -- one-to-many */
-	is_dealt_by INT NOT NULL,
+	is_dealt_by INT,
   	FOREIGN KEY(is_dealt_by) REFERENCES admin(user_id)
  );
  

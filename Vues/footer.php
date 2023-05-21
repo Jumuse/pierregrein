@@ -5,7 +5,7 @@
     <img src="Images/Logos/Logo Light.png" class="logo-footer" alt="logo">
     <p class="footerP">
         <?php 
-            require_once 'dates.php';
+            require_once '../Back/dates.php';
             echo "Aujourd'hui, ". dateToFrench("now" ,"l"). " ". dateToFrench("now" ,"j F Y");
         ?>
         <br>

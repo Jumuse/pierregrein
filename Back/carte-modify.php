@@ -10,31 +10,22 @@
 <body>
 <?php
 
-         //connexion à la base de donnée
           include_once "connexion.php";
-         //on récupère le id dans le lien
           $id = $_GET['id'];
-          //requête pour afficher les infos d'un employé
           $req = mysqli_query($con , "SELECT * FROM carte WHERE id = $id");
           $row = mysqli_fetch_assoc($req);
 
-
-       //vérifier que le bouton ajouter a bien été cliqué
        if(isset($_POST['button'])){
-           //extraction des informations envoyé dans des variables par la methode POST
            extract($_POST);
-           //verifier que tous les champs ont été remplis
-           if(isset($nom) && isset($prenom) && $age){
-               //requête de modification
-               $req = mysqli_query($con, "UPDATE employe SET nom = '$nom' , prenom = '$prenom' , age = '$age' WHERE id = $id");
-                if($req){//si la requête a été effectuée avec succès , on fait une redirection
-                    header("location: index.php");
-                }else {//si non
-                    $message = "Employé non modifié";
+           if(isset($title) && isset($category) && isset($description) && isset($price)){
+               $req = mysqli_query($con, "UPDATE carte SET title = '$title' , category = '$category' , description = '$description', price = '$price' WHERE id = $id");
+                if($req){
+                    header("location: ../Vues/admin.php");
+                }else {
+                    $message = "Plat non modifié";
                 }
 
            }else {
-               //si non
                $message = "Veuillez remplir tous les champs !";
            }
        }
@@ -42,8 +33,8 @@
     ?>
 
     <div class="form">
-        <a href="index.php" class="back_btn"><img src="images/back.png"> Retour</a>
-        <h2>Modifier le plat : <?=$row['nom']?> </h2>
+        <a href="../Vues/admin.php" class="back_btn">Retour</a>
+        <h2>Modifier le plat : <?=$row['title']?> </h2>
         <p class="erreur_message">
            <?php 
               if(isset($message)){
@@ -52,12 +43,20 @@
            ?>
         </p>
         <form action="" method="POST">
-            <label>Nom</label>
-            <input type="text" name="nom" value="<?=$row['nom']?>">
-            <label>Prénom</label>
-            <input type="text" name="prenom" value="<?=$row['prenom']?>">
-            <label>âge</label>
-            <input type="number" name="age" value="<?=$row['age']?>">
+            <label>Nom du plat</label>
+            <input type="text" name="title" value="<?=$row['title']?>">
+            <label>Catégorie</label>
+
+            <select type="text" name="category" value="<?=$row['category']?>">
+                <option value="Entrees">Entrées</option>
+                <option value="Viandes">Viandes</option>
+                <option value="Poissons">Poissons</option>
+                <option value="Desserts">Desserts</option>
+            </select>
+            <label>Description</label>
+            <input type="text" name="description" value="<?=$row['description']?>">
+            <label>Prix</label>
+            <input type="integer" name="price" value="<?=$row['price']?>">
             <input type="submit" value="Modifier" name="button">
         </form>
     </div>

@@ -1,16 +1,21 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'MontSerrat', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-body {
+h1 {
+    margin: 5px;
+    text-align: center;
+}
+.container {
+    box-sizing: border-box;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
     position: relative;
+    padding-bottom: 20px;
 }
 .Btn_add {
     width: fit-content;
@@ -35,9 +40,9 @@ table {
 }
 th {
     font-size: 16px;
-    border-bottom: 3px solid #ffcb61;
+    border-bottom: 3px solid #FFA027;
     padding: 5px 20px;
-    font-weight: 500;
+    font-weight: bold;
 }
 td {
     font-weight: 400;
@@ -70,7 +75,7 @@ tr:nth-child(2n) td {
     flex-direction: column;
 }
 .back_btn {
-    color: #2bc48a;
+    color: #69CB10;
     text-decoration: 0;
     display: flex;
     align-items: center;
