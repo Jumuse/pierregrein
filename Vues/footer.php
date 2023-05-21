@@ -16,10 +16,10 @@
 </div>
 
 <div class="middlePart">
-    <img src="Images/Logos/Tripadvisor.png" class="img-footer" alt="'Logo Millau">
-    <img src="Images/Logos/fb.png" class="img-footer" alt="'Logo Millau">
-    <img src="Images/Logos/Instagram.png" class="img-footer" alt="'Logo Millau">
-    <img src="Images/Logos/logo millaut.png" class="img-footer" alt="'Logo Millau">
+    <img src="..photos/Logos/Tripadvisor.png" class="img-footer" alt="'Logo TripAdvisor">
+    <img src="..photos/Logos/fb.png" class="img-footer" alt="'Logo Facebook">
+    <img src="..photos/Logos/Instagram.png" class="img-footer" alt="'Logo Instagram">
+    <img src="..photos/Logos/logo millaut.png" class="img-footer" alt="'Logo Millaut">
 </div>
 
 <div class="downwards">

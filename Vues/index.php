@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -17,7 +20,6 @@
     <?php
         include "header.php";
     ?>
-
     <div class="frontPicture">
         <img src="Images/background.jpg" class="background-picture" alt="Salade">
         <img src="Images/m-background.jpg" class="m-background-picture" alt="Salade">

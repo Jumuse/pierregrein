@@ -9,7 +9,6 @@
 </head>
 <body>
     <section>
-        <a href="../Vues/admin.php" class="back_btn">Retour</a>
         <?php
             include_once "connexion.php";
             $req = mysqli_query($con , "SELECT * FROM photos");

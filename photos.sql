@@ -92,8 +92,27 @@ CREATE TABLE timetables (
 	is_dealt_by INT,
   	FOREIGN KEY(is_dealt_by) REFERENCES admin(user_id)
  );
- 
 
+INSERT INTO timetables (day_id, opening_time_morning, closing_time_morning, opening_time_evening, closing_time_evening, time_setting, is_dealt_by)
+VALUES (1, '12:00:00', '14:00:00', NULL, NULL, 1, 1);
+
+INSERT INTO timetables (day_id, opening_time_morning, closing_time_morning, opening_time_evening, closing_time_evening, time_setting, is_dealt_by)
+VALUES (2, '12:00:00', '14:00:00', '19:00:00', '22:00:00', 1, 1);
+
+INSERT INTO timetables (day_id, opening_time_morning, closing_time_morning, opening_time_evening, closing_time_evening, time_setting, is_dealt_by)
+VALUES (3, '12:00:00', '14:00:00', '19:00:00', '22:00:00', 1, 1);
+
+INSERT INTO timetables (day_id, opening_time_morning, closing_time_morning, opening_time_evening, closing_time_evening, time_setting, is_dealt_by)
+VALUES (4, NULL, NULL, NULL, NULL, 1, 1);
+
+INSERT INTO timetables (day_id, opening_time_morning, closing_time_morning, opening_time_evening, closing_time_evening, time_setting, is_dealt_by)
+VALUES (5, '12:00:00', '14:00:00', '19:00:00', '22:00:00', 1, 1);
+
+INSERT INTO timetables (day_id, opening_time_morning, closing_time_morning, opening_time_evening, closing_time_evening, time_setting, is_dealt_by)
+VALUES (6, '12:00:00', '14:00:00', '19:00:00', '22:00:00', 1, 1);
+
+INSERT INTO timetables (day_id, opening_time_morning, closing_time_morning, opening_time_evening, closing_time_evening, time_setting, is_dealt_by)
+VALUES (7, NULL, NULL, '19:00:00', '23:00:00', 1, 1);
 
  
  CREATE TABLE tables (
@@ -115,6 +134,6 @@ CREATE TABLE reservation (
   	FOREIGN KEY(time_row) REFERENCES timetables(day_id),
 
   /* one user can make several reservations -- one-to-many */
-  	user_info INT NOT NULL,
+  	user_info INT,
   	FOREIGN KEY(user_info) REFERENCES users(id)
 );

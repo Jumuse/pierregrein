@@ -41,7 +41,12 @@
         
         <div class="wraps">
             <label for="time">heure&nbsp;:</label>
-            <input type="time" id="time" name="user_time">
+            <div class="button" onclick="availabilityChecker()">
+                <?php
+                require_once '../Back/horaires.php';
+                echo btnCreation();
+                ?>
+            </div>
         </div>
         
         
@@ -77,7 +82,9 @@
 ?>
 
 
-<script src="script.js"></script>
+<script src="script.js">
+
+</script>
 <style>
     .title-wrapper {
         text-align: center;

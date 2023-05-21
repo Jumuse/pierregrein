@@ -1,5 +1,6 @@
-<?php 
-    include_once "../Back/connexion.php";
+<?php
+session_start(); 
+include_once "../Back/connexion.php";
     if(isset($_POST['send'])){
         if(!empty($_FILES['photos']) && isset($_POST['description']) && $_POST['description']!= ""  && isset($_POST['category'])){
             $img_nom = $_FILES['photos']['name'];
