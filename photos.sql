@@ -35,6 +35,9 @@ CREATE TABLE admin (
  );
 
  INSERT INTO admin (is_admin, works_for, user_id)
+ VALUES (true, 1, 1);
+
+ INSERT INTO admin (is_admin, works_for, user_id)
 VALUES (true, 1, 1);
  
  CREATE TABLE carte (
@@ -117,7 +120,7 @@ VALUES (7, NULL, NULL, '19:00:00', '23:00:00', 1, 1);
  
  CREATE TABLE tables (
  	id INT NOT NULL PRIMARY KEY,
-   	plates_per_table TINYINT
+   	couverts TINYINT
  );
 
 CREATE TABLE reservation (
@@ -126,9 +129,12 @@ CREATE TABLE reservation (
 	is_seen_by INT NOT NULL,
   	FOREIGN KEY(is_seen_by) REFERENCES admin(user_id),
    /* reservation books a table -- one-to-one*/
-  	plates_per_table INT NOT NULL,
-  	FOREIGN KEY(plates_per_table) REFERENCES tables(id),
+  	couverts INT NOT NULL,
+  	FOREIGN KEY(couverts) REFERENCES tables(id),
   	date DATE NOT NULL,
+	name VARCHAR(20),
+	email VARCHAR(45) NOT NULL,
+	telephone varchar(10) NOT NULL,
   /* reservation needs access to timetables of the restaurant -- one-to-one*/
   	time_row TINYINT NOT NULL,
   	FOREIGN KEY(time_row) REFERENCES timetables(day_id),

@@ -1,6 +1,18 @@
 <?php
-session_start(); 
+$con = require_once '../Back/connexion.php';
+$is_admin = mysqli_query($con, "SELECT user_id FROM admin WHERE is_admin = true");
+if ($is_admin) {
+    session_start();           
+    session_regenerate_id();
+} else {
+    header("Location: ../Login/login.php");
+    exit;
+};
+
+include '../Vues/header.php';
 include_once "../Back/connexion.php";
+
+
     if(isset($_POST['send'])){
         if(!empty($_FILES['photos']) && isset($_POST['description']) && $_POST['description']!= ""  && isset($_POST['category'])){
             $img_nom = $_FILES['photos']['name'];
@@ -25,7 +37,7 @@ include_once "../Back/connexion.php";
         }else {
             $message = "Veuillez remplir tous les champs !";
         }
-    }
+    };
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -186,6 +198,43 @@ include_once "../Back/connexion.php";
 <div class="container">
     <div class="resaCheck">
         <h2>Voir les réservations</h2>
+        <a href="../Back/add-foodmenu.php" class="Btn_add"> <img src="../photos/Logos/plus.png"> Ajouter</a>
+        
+        <table>
+            <tr id="items">
+                <th>Nombre de couverts</th>
+                <th>Date</th>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Téléphone</th>
+                <th>Supprimer</th>
+            </tr>
+            <?php 
+
+                $req = mysqli_query($con , "SELECT * FROM reservation");
+                if(mysqli_num_rows($req) == 0){
+                    echo "Il n'y a aucune réservation enregistrée !" ;
+                    
+                }else {
+                    while($row=mysqli_fetch_assoc($req)){
+                        ?>
+                        <tr>
+                            <td><?=$row['couverts']?></td>
+                            <td><?=$row['date']?></td>
+                            <td><?=$row['name']?></td>
+                            <td><?=$row['email']?></td>
+                            <td><?=$row['telephone']?></td>
+
+                            <td><a href="../Back/resa-suppression.php?id=<?=$row['id']?>" onclick="return(confirm('Confirmez-vous la suppression ?'));"><img src="../photos/Logos/bin.png"></a></td>
+                        </tr>
+                        <?php
+                    }
+                    
+                }
+            ?>
+      
+         
+        </table>
     </div>
 </div>
 

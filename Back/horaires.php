@@ -1,13 +1,14 @@
 <?php
-
-function btnCreation() {
     include 'connexion.php';
-    $req = mysqli_query($con , "SELECT * FROM timetables");
-    $row=mysqli_fetch_assoc($req);
+   /* $req = mysqli_query($con , "SELECT * FROM timetables");
+    function btnCreation() {
+
+
 
     if(mysqli_num_rows($req) == 0){
     echo "Il n'y a pas encore de plats à ajouter !" ;
-    
+
+    $row=mysqli_fetch_assoc($req);
     } else {
     
         while($row=mysqli_fetch_assoc($req)){
@@ -30,5 +31,4 @@ function btnCreation() {
     
     }
 };
-
-$creneauResa = $row['day_id'].$row['hour'];
+*/

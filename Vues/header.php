@@ -50,3 +50,4 @@ if (isset($_SESSION["user_id"])) {
 
 
 </header>
+<script src="../JS/script.js"></script>

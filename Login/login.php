@@ -8,25 +8,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     WHERE email = '%s'",
                    $con->real_escape_string($_POST["email"]));
     
+    $is_admin = mysqli_query($con, "SELECT user_id FROM admin WHERE is_admin = true");
+    
     $result = $con->query($sql);
     
     $user = $result->fetch_assoc();
     
     if ($user) {
         
-        if (password_verify($_POST["password"], $user["password"])) {
-            
-            session_start();
-            
+        if (password_verify($_POST["password"], $user["password"])) {            
+            session_start();           
             session_regenerate_id();
-            
             $_SESSION["user_id"] = $user["id"];
-        } if (){
             header("Location: ../Vues/index.php");
             exit;
-        } else {
+            } if ($is_admin) {
             header("Location: ../Vues/admin.php");
-            exit;
         }
     }
 

@@ -10,3 +10,13 @@ document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click"),
     hamburger.classList.remove("active");
     navMenu.classList.remove("active");
 })
+
+function showMsg() {
+    var checkBox = document.getElementById("allergies");
+    var msgAllergies = document.getElementById("msg-allergies");
+    if(checkBox.checked) {
+        msgAllergies.style.display = "block";
+    } else {
+        msgAllergies.style.display = "none";
+    }
+}
