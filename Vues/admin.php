@@ -65,9 +65,12 @@ include_once "../Back/connexion.php";
             <tr id="items">
                 <th>Nombre de couverts</th>
                 <th>Date</th>
+                <th>Time</th>
                 <th>Nom</th>
                 <th>Email</th>
                 <th>Téléphone</th>
+                <th>Allergie ?</th>
+                <th>Type d'allergie</th>
                 <th>Supprimer</th>
             </tr>
             <?php 
@@ -82,9 +85,12 @@ include_once "../Back/connexion.php";
                         <tr>
                             <td><?=$row['couverts']?></td>
                             <td><?=$row['date']?></td>
+                            <td><?=$row['time']?></td>
                             <td><?=$row['name']?></td>
                             <td><?=$row['email']?></td>
                             <td><?=$row['telephone']?></td>
+                            <td><?=$row['is_allergic']?></td>
+                            <td><?=$row['allergies']?></td>
 
                             <td><a href="../Back/resa-suppression.php?id=<?=$row['id']?>" onclick="return(confirm('Confirmez-vous la suppression ?'));"><img src="../photos/Logos/bin.png"></a></td>
                         </tr>

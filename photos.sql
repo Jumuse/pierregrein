@@ -133,6 +133,6 @@ CREATE TABLE reservation (
 	email VARCHAR(45) NOT NULL,
 	telephone varchar(10) NOT NULL,
   /* reservation needs access to timetables of the restaurant -- one-to-one*/
-  	time_row TINYINT NOT NULL,
-  	FOREIGN KEY(time_row) REFERENCES timetables(day_id),
+  	time TINYINT NOT NULL,
+  	FOREIGN KEY(time) REFERENCES timetables(day_id),
 );

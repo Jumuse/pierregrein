@@ -2,7 +2,7 @@
 
 
 <div class="upwards">
-    <img src="Images/Logos/Logo Light.png" class="logo-footer" alt="logo">
+    <img src="../photos/Logos/Logo Light.png" class="logo-footer" alt="logo">
     <p class="footerP">
         <?php 
             require_once '../Back/dates.php';
@@ -16,10 +16,10 @@
 </div>
 
 <div class="middlePart">
-    <img src="..photos/Logos/Tripadvisor.png" class="img-footer" alt="'Logo TripAdvisor">
-    <img src="..photos/Logos/fb.png" class="img-footer" alt="'Logo Facebook">
-    <img src="..photos/Logos/Instagram.png" class="img-footer" alt="'Logo Instagram">
-    <img src="..photos/Logos/logo millaut.png" class="img-footer" alt="'Logo Millaut">
+    <img src="../photos/Logos/Tripadvisor.png" class="img-footer" alt="'Logo TripAdvisor">
+    <img src="../photos/Logos/fb.png" class="img-footer" alt="'Logo Facebook">
+    <img src="../photos/Logos/Instagram.png" class="img-footer" alt="'Logo Instagram">
+    <img src="../photos/Logos/logo millaut.png" class="img-footer" alt="'Logo Millaut">
 </div>
 
 <div class="downwards">

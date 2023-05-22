@@ -1,32 +1,7 @@
 <?php
     include "header.php";
-       $couverts=$_POST['couverts'];
-       $date=$_POST['date'];
-       $name=$_POST['name'];
-       $email=$_POST['email'];
-       $telephone=$_POST['telephone'];
-       
-       try{
-           //On se connecte à la BDD
-           $pdo = new PDO("mysql:host=localhost;dbname=restaurant", 'root','root');
-           $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-           //On insère les données reçues
-           $sth = $pdo->prepare("INSERT INTO reservation (couverts, date, name, email, telephone) VALUES(:couverts, :date, :name, :email, :telephone)");
-           $sth->bindParam(':couverts',$couverts);
-           $sth->bindParam(':date',$date);
-           $sth->bindParam(':name',$name);
-           $sth->bindParam(':email',$email);
-           $sth->bindParam(':telephone',$telephone);
-           $sth->execute();
-           
-           echo '<h4>Votre réservation a bien été enregistrée !</h4>';
-       }
-       catch(PDOException $e){
-           echo 'Impossible de traiter les données. Erreur : '.$e->getMessage();
-       }
-   ?>
-    
-
+    include '../Back/resa-process.php';
+?>    
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -65,6 +40,14 @@
         <label for="date">Date&nbsp;</label>
             <input type="date" id="date" name="date">
         </div>
+
+        <label for="horaires">Horaires</label>
+            <select name="time" id="time">
+                <option value="12">12h</option>
+                <option value="13">13h</option>
+                <option value="19">19h</option>
+                <option value="20">20h</option>
+            </select>
    
         <div class="wraps">
             <label for="name">Nom</label>

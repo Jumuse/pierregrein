@@ -42,7 +42,7 @@
             </div>
 
             <div class="timetable">
-                <p><?php require_once 'dates.php';
+                <p><?php require_once '../Back/dates.php';
                 echo $weekHours; ?></p>
                 <p><?php echo $weekHours; ?></p>
                 <p><?php echo $wednesday; ?></p>
