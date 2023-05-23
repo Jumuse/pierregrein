@@ -29,7 +29,7 @@
     </a>
 
 
-    <div class="container premier-container">
+    <div class="container-menus">
     
     <h2>Les formules du Midi</h2>
     <h3>Formule Entrée + Plat ou Plat + Dessert</h3>
@@ -85,7 +85,7 @@
     </div>
 
 
-    <div class="container second-container">
+    <div class="container-menus">
     
     <h2>Les formules du Soir</h2>
     <h3>Formule Entrée + Plat ou Plat + Dessert</h3>

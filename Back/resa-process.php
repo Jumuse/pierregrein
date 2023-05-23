@@ -1,5 +1,7 @@
 <?php
-$couverts=$_POST['couverts'];
+    
+if(isset($_POST['send'])){
+    $couverts=$_POST['couverts'];
        $date=$_POST['date'];
        $time=$_POST['time'];
        $name=$_POST['name'];
@@ -29,4 +31,5 @@ $couverts=$_POST['couverts'];
        catch(PDOException $e){
            echo 'Impossible de traiter les données. Erreur : '.$e->getMessage();
        }
+}
    ?>

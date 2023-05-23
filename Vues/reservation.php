@@ -70,7 +70,7 @@
             <br>
                 <textarea id="msg-allergies" name="allergies" style="display:none"></textarea>
         </div>
-        <button type="submit" value="Envoyer">Envoyer</button>
+        <button type="submit" value="Envoyer" name="send">Envoyer</button>
     </form>
 
     </div>

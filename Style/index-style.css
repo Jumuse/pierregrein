@@ -10,13 +10,6 @@ body {
     width: 100%;
     object-fit: contain;
 }
-.logo-background {
-    position: relative;
-    top: -50%;
-    max-width: 80%;
-    left: 50%;
-    transform: translateX(-50%);
-}
 .bloc1 {
     background: white;
 }
@@ -45,7 +38,10 @@ p {
     font-size: 25px;
     word-wrap: break-word;
 }
-
+.container-menus {
+    margin-left: 50%;
+    margin-right: 50%;
+}
 .container {
     position: relative;
 }

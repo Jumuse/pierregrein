@@ -20,7 +20,7 @@
 
     <h1>La Carte</h1>
 
-    <div class="container first-container">
+    <div class="container-menus">
     
         <h2>Les Entrées</h2>
         
@@ -52,7 +52,7 @@
     </div>
 
 
-    <div class="container second-container">
+    <div class="container-menus">
     
     <h2>Les Viandes</h2>
     
@@ -82,7 +82,7 @@
     </table>
 </div>
 
-    <div class="container third-container">
+    <div class="container-menus">
     
     <h2>Les Poissons</h2>
     
@@ -112,7 +112,7 @@
     </table>
 </div>
 
-<div class="container fourth-container">
+<div class="container-menus">
     
     <h2>Les Desserts</h2>
     
