@@ -1,6 +1,6 @@
 <?php
 
-$con = require __DIR__ . "../Back/connexion.php";
+$con = require __DIR__ . "connexion.php";
 
 $sql = sprintf("SELECT * FROM users
                 WHERE email = '%s'",

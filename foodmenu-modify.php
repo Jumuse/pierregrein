@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modifier</title>
-    <link rel="stylesheet" href="../Style/admin-style.css">
+    <link rel="stylesheet" href="admin-style.css">
 </head>
 <body>
 <?php
@@ -20,7 +20,7 @@
            if(isset($menu_title) && isset($formula_title) && isset($formula_description) && isset($formula_price)){
                $req = mysqli_query($con, "UPDATE foodmenu SET menu_title = '$menu_title' , formula_title = '$formula_title' , formula_description = '$formula_description', formula_price = '$formula_price' WHERE id = $id");
                 if($req){
-                    header("location: ../Vues/admin.php");
+                    header("location: admin.php");
                 }else {
                     $message = "Plat non modifié";
                 }
@@ -33,7 +33,7 @@
     ?>
 
     <div class="form">
-        <a href="../Vues/admin.php" class="back_btn">Retour</a>
+        <a href="admin.php" class="back_btn">Retour</a>
         <h2>Modifier le menu : <?=$row['menu_title']?> </h2>
         <p class="erreur_message">
            <?php 

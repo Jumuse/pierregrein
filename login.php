@@ -2,7 +2,7 @@
 $is_invalid = false;
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $con = require_once '../Back/connexion.php';
+    $con = require_once 'connexion.php';
     
     $sql = sprintf("SELECT * FROM users
                     WHERE email = '%s'",
@@ -20,10 +20,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             session_start();           
             session_regenerate_id();
             $_SESSION["user_id"] = $user["id"];
-            header("Location: ../index.php");
+            header("Location: index.php");
             exit;
             } if ($is_admin) {
-            header("Location: ../Vues/admin.php");
+            header("Location: admin.php");
         }
     }
 
@@ -59,6 +59,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <button>Log in</button>
     </form>
 
-    <p><a href="../Login/signup.php">S'inscrire</a>  </p>
+    <p><a href="signup.php">S'inscrire</a>  </p>
 </body>
 </html>

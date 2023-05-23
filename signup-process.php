@@ -26,7 +26,7 @@ if ($_POST["password"] !== $_POST["password_confirmation"]) {
 
 $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
-$con = require_once '../Back/connexion.php';
+$con = require_once 'connexion.php';
 
 $sql = "INSERT INTO users (name, email, password, possesses)
         VALUES (?, ?, ?, 1)";

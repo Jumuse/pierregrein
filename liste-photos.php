@@ -22,7 +22,7 @@
             while($row = mysqli_fetch_assoc($req)){
                 ?>         
                     <div class="box">
-                        <img  class="img_principal" src="../photos/<?=$row['name']?>">
+                        <img  class="img_principal" src="photos/<?=$row['name']?>">
                         <div><?=$row['name']?></div>
                     </div>
                 <?php

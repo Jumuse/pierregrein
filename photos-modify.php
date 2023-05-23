@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modifier</title>
-    <link rel="stylesheet" href="../Style/admin-style.css">
+    <link rel="stylesheet" href="admin-style.css">
 </head>
 <body>
 <?php
@@ -17,7 +17,7 @@ if(isset($_POST['send'])){
         $tmp_nom = $_FILES['photos']['tmp_name'];
         $time = time();
         $nouveau_nom_img = $time.$img_nom ;
-        $deplacer_img = move_uploaded_file($tmp_nom,"../photos/".$nouveau_nom_img);
+        $deplacer_img = move_uploaded_file($tmp_nom,"photos/".$nouveau_nom_img);
 
         if($deplacer_img){
             $id = time();
@@ -25,7 +25,7 @@ if(isset($_POST['send'])){
             $description = $_POST['description'] ;
             $req = mysqli_query($con , "INSERT INTO photos VALUES ('$id' ,'$nouveau_nom_img', '$description', '$category')");
             if($req){
-                header("location:../Back/liste-photos.php") ;
+                header("location:liste-photos.php") ;
             }else {
                 $message = "Echec de l'ajout de l'image !";
             }
@@ -44,7 +44,7 @@ if(isset($_POST['send'])){
            if(isset($nouveau_nom_img) && isset($description) && isset($category)){
                $req = mysqli_query($con, "UPDATE photos SET name = '$name', description = '$description', category = '$category' WHERE id = $id");
                 if($req){
-                    header("location: ../Vues/admin.php");
+                    header("location: admin.php");
                 }else {
                     $message = "Image non modifiée";
                 }
@@ -56,7 +56,7 @@ if(isset($_POST['send'])){
     ?>
 
     <div class="form">
-        <a href="../Vues/admin.php" class="back_btn">Retour</a>
+        <a href="admin.php" class="back_btn">Retour</a>
         <h2>Modifier la photo : <? $row['name']?></h2>
         <p class="erreur_message">
            <?php 
@@ -77,7 +77,7 @@ if(isset($_POST['send'])){
                 <option value="3">Poissons</option>
                 <option value="4">Desserts</option>
             </select>
-            <input type="submit" value="Modifier" name="send" href="../Back/liste-photos.php">
+            <input type="submit" value="Modifier" name="send" href="liste-photos.php">
         </form>
     </div>
 </body>

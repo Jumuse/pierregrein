@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajouter</title>
-    <link rel="stylesheet" href="../Style/admin-style.css">
+    <link rel="stylesheet" href="admin-style.css">
 </head>
 <body>
     <?php
@@ -15,7 +15,7 @@
                 include_once "connexion.php";
                 $req = mysqli_query($con , "INSERT INTO carte VALUES(NULL, '$title', '$category','$description','$price', 1)");
                 if($req){
-                    header("location: ../Vues/admin.php");
+                    header("location: admin.php");
                 }else {
                     $message = "Le plat n'a pas pu être ajouté.";
                 }
@@ -26,7 +26,7 @@
     
     ?>
     <div class="form">
-        <a href="../Vues/admin.php" class="back_btn"> Retour</a>
+        <a href="admin.php" class="back_btn"> Retour</a>
         <h2>Ajouter un plat</h2>
         <p class="erreur_message">
             <?php 
