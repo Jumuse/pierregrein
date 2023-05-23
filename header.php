@@ -1,6 +1,6 @@
 <?php
 if (isset($_SESSION["user_id"])) {
-    $con = require_once '../Back/connexion.php';   
+    $con = require_once 'Back/connexion.php';   
     $sql = "SELECT * FROM users
             WHERE id = {$_SESSION["user_id"]}";            
     $result = $con->query($sql);  
@@ -11,8 +11,8 @@ if (isset($_SESSION["user_id"])) {
     
 
     <nav class="navbar">
-        <a href="../index.php" class="nav-branding">
-            <img src="../photos/Logos/Logo Light.png" alt="Logo">
+        <a href="index.php" class="nav-branding">
+            <img src="photos/Logos/Logo Light.png" alt="Logo">
         </a>
 
             <ul class="nav-menu">
@@ -33,9 +33,9 @@ if (isset($_SESSION["user_id"])) {
                 </li>
                 <li class="nav-item">
                 <?php if (isset($user)): ?>
-                    <a href="../Login/logout.php">Se déconnecter</a>            
+                    <a href="Login/logout.php">Se déconnecter</a>            
                 <?php else: ?>            
-                    <a href="../Login/login.php">Se connecter</a>         
+                    <a href="Login/login.php">Se connecter</a>         
                 <?php endif; ?>
                 </li>
             </ul>
@@ -50,4 +50,4 @@ if (isset($_SESSION["user_id"])) {
 
 
 </header>
-<script src="../JS/script.js"></script>
+<script src="JS/script.js"></script>

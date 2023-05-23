@@ -1,16 +1,16 @@
 <?php
-$con = require_once '../Back/connexion.php';
+$con = require_once 'Back/connexion.php';
 $is_admin = mysqli_query($con, "SELECT user_id FROM admin WHERE is_admin = true");
 if ($is_admin) {
     session_start();           
     session_regenerate_id();
 } else {
-    header("Location: ../Login/login.php");
+    header("Location: Login/login.php");
     exit;
 };
 
-include '../Vues/header.php';
-include_once "../Back/connexion.php";
+include 'header.php';
+include_once "Back/connexion.php";
 
 
     if(isset($_POST['send'])){
@@ -19,7 +19,7 @@ include_once "../Back/connexion.php";
             $tmp_nom = $_FILES['photos']['tmp_name'];
             $time = time();
             $nouveau_nom_img = $time.$img_nom ;
-            $deplacer_img = move_uploaded_file($tmp_nom,"../photos/".$nouveau_nom_img);
+            $deplacer_img = move_uploaded_file($tmp_nom,"photos/".$nouveau_nom_img);
 
             if($deplacer_img){
                 $id = time();
@@ -27,7 +27,7 @@ include_once "../Back/connexion.php";
                 $description = $_POST['description'] ;
                 $req = mysqli_query($con , "INSERT INTO photos VALUES ('$id' ,'$nouveau_nom_img', '$description', '$category')");
                 if($req){
-                    header("location:../Back/liste-photos.php") ;
+                    header("location:Back/liste-photos.php") ;
                 }else {
                     $message = "Echec de l'ajout de l'image !";
                 }
@@ -47,9 +47,9 @@ include_once "../Back/connexion.php";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant Quai Antique</title>
-    <link rel="stylesheet" href="../Style/admin-style.css">
-    <link rel="stylesheet" href="../Style/index-style.css">
-    <link rel="stylesheet" href="../Style/header-style.css">
+    <link rel="stylesheet" href="Style/admin-style.css">
+    <link rel="stylesheet" href="Style/index-style.css">
+    <link rel="stylesheet" href="Style/header-style.css">
 </head>
 
 
@@ -59,7 +59,7 @@ include_once "../Back/connexion.php";
 
 <div class="content">
         <h2>Voir les réservations</h2>
-        <a href="../Back/add-foodmenu.php" class="Btn_add"> <img src="../photos/Logos/plus.png"> Ajouter</a>
+        <a href="Back/add-foodmenu.php" class="Btn_add"> <img src="photos/Logos/plus.png"> Ajouter</a>
         
         <table>
             <tr id="items">
@@ -92,7 +92,7 @@ include_once "../Back/connexion.php";
                             <td><?=$row['is_allergic']?></td>
                             <td><?=$row['allergies']?></td>
 
-                            <td><a href="../Back/resa-suppression.php?id=<?=$row['id']?>" onclick="return(confirm('Confirmez-vous la suppression ?'));"><img src="../photos/Logos/bin.png"></a></td>
+                            <td><a href="Back/resa-suppression.php?id=<?=$row['id']?>" onclick="return(confirm('Confirmez-vous la suppression ?'));"><img src="photos/Logos/bin.png"></a></td>
                         </tr>
                         <?php
                     }
@@ -105,7 +105,7 @@ include_once "../Back/connexion.php";
 
 <div class="content">
     <h2>Modifier la Carte</h2>
-        <a href="../Back/add-meal.php" class="Btn_add"> <img src="../photos/Logos/plus.png"> Ajouter</a>
+        <a href="Back/add-meal.php" class="Btn_add"> <img src="photos/Logos/plus.png"> Ajouter</a>
         
         <table>
             <tr id="items">
@@ -117,7 +117,7 @@ include_once "../Back/connexion.php";
                 <th>Supprimer</th>
             </tr>
             <?php 
-                include_once "../Back/connexion.php";
+                include_once "Back/connexion.php";
                 $req = mysqli_query($con , "SELECT * FROM carte");
                 if(mysqli_num_rows($req) == 0){
                     echo "Il n'y a pas encore de plats à ajouter !" ;
@@ -131,8 +131,8 @@ include_once "../Back/connexion.php";
                             <td><?=$row['description']?></td>
                             <td><?=$row['price']?></td>
 
-                            <td><a href="../Back/carte-modify.php?id=<?=$row['id']?>"><img src="../photos/Logos/pen.png"></a></td>
-                            <td><a href="../Back/carte-suppression.php?id=<?=$row['id']?>" onclick="return(confirm('Confirmez-vous la suppression ?'));"><img src="../photos/Logos/bin.png"></a></td>
+                            <td><a href="Back/carte-modify.php?id=<?=$row['id']?>"><img src="photos/Logos/pen.png"></a></td>
+                            <td><a href="Back/carte-suppression.php?id=<?=$row['id']?>" onclick="return(confirm('Confirmez-vous la suppression ?'));"><img src="photos/Logos/bin.png"></a></td>
                         </tr>
                         <?php
                     }
@@ -145,7 +145,7 @@ include_once "../Back/connexion.php";
 
     <div class="content">
         <h2>Modifier les Menus et Formules</h2>
-        <a href="../Back/add-foodmenu.php" class="Btn_add"> <img src="../photos/Logos/plus.png"> Ajouter</a>
+        <a href="Back/add-foodmenu.php" class="Btn_add"> <img src="photos/Logos/plus.png"> Ajouter</a>
         
         <table>
             <tr id="items">
@@ -171,8 +171,8 @@ include_once "../Back/connexion.php";
                             <td><?=$row['formula_description']?></td>
                             <td><?=$row['formula_price']?></td>
 
-                            <td><a href="../Back/foodmenu-modify.php?id=<?=$row['id']?>"><img src="../photos/Logos/pen.png"></a></td>
-                            <td><a href="../Back/foodmenu-suppression.php?id=<?=$row['id']?>" onclick="return(confirm('Confirmez-vous la suppression ?'));"><img src="../photos/Logos/bin.png"></a></td>
+                            <td><a href="Back/foodmenu-modify.php?id=<?=$row['id']?>"><img src="photos/Logos/pen.png"></a></td>
+                            <td><a href="Back/foodmenu-suppression.php?id=<?=$row['id']?>" onclick="return(confirm('Confirmez-vous la suppression ?'));"><img src="photos/Logos/bin.png"></a></td>
                         </tr>
                         <?php
                     }
@@ -185,7 +185,7 @@ include_once "../Back/connexion.php";
 
 <div class="content">
     <h2>Modifier les photos de la galerie</h2>
-    <a href="../Back/liste-photos.php" class="link">Liste des photos</a>
+    <a href="Back/liste-photos.php" class="link">Liste des photos</a>
     <br><br>
     <table>
         <tr id="items">
@@ -209,8 +209,8 @@ include_once "../Back/connexion.php";
                             <td><?=$row['description']?></td>
                             <td><?=$row['category']?></td>
 
-                            <td><a href="../Back/photos-modify.php?id=<?=$row['id']?>"><img src="../photos/Logos/pen.png"></a></td>
-                            <td><a href="../Back/photos-suppression.php?id=<?=$row['id']?>" onclick="return(confirm('Confirmez-vous la suppression ?'));"><img src="../photos/Logos/bin.png"></a></td>
+                            <td><a href="Back/photos-modify.php?id=<?=$row['id']?>"><img src="photos/Logos/pen.png"></a></td>
+                            <td><a href="Back/photos-suppression.php?id=<?=$row['id']?>" onclick="return(confirm('Confirmez-vous la suppression ?'));"><img src="photos/Logos/bin.png"></a></td>
                         </tr>
                         <?php
                     }
@@ -239,7 +239,7 @@ include_once "../Back/connexion.php";
                 <option value="4">Desserts</option>
             </select>
             
-            <input type="submit" value="Ajouter" name="send" href="../Back/liste-photos.php">
+            <input type="submit" value="Ajouter" name="send" href="Back/liste-photos.php">
                      
         </form>
     </div>

@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../Style/footer-style.css" rel="stylesheet" type="text/css" />
-    <link href="../Style/header-style.css" rel="stylesheet" type="text/css" />
-    <link href="../Style/index-style.css" rel="stylesheet" type="text/css" />
+    <link href="Style/footer-style.css" rel="stylesheet" type="text/css" />
+    <link href="Style/header-style.css" rel="stylesheet" type="text/css" />
+    <link href="Style/index-style.css" rel="stylesheet" type="text/css" />
     <title>Restaurant Quai Antique</title>
 </head>
 
@@ -42,7 +42,7 @@
             </div>
 
             <div class="timetable">
-                <p><?php require_once '../Back/dates.php';
+                <p><?php require_once 'Back/dates.php';
                 echo $weekHours; ?></p>
                 <p><?php echo $weekHours; ?></p>
                 <p><?php echo $wednesday; ?></p>
