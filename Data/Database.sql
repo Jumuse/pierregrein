@@ -6,8 +6,6 @@ CREATE TABLE restaurant (
 	address VARCHAR(70) NOT NULL
 );
 
-INSERT INTO restaurant ( id, name, address )
-VALUES ( 1, 'Quai Antique', '25 Chemin des Camélias 73000 Chambéry');
 
 CREATE TABLE users (
     id INT NOT NULL PRIMARY KEY,
@@ -22,8 +20,6 @@ CREATE TABLE users (
   	FOREIGN KEY(possesses) REFERENCES restaurant(id)
 );
 
-INSERT INTO users (id, email, password, telephone, name, is_allergic, allergy_type, possesses)
-VALUES (1, 'admin@admin.com', 'iuhrfiuzogp6269864', 0672587914, 'admin1', false, NULL, 1);
 
 CREATE TABLE admin (
   	is_admin BOOLEAN NOT NULL,
@@ -33,12 +29,6 @@ CREATE TABLE admin (
       user_id INT NOT NULL PRIMARY KEY,
     FOREIGN KEY (user_id) REFERENCES users(id)
  );
-
- INSERT INTO admin (is_admin, works_for, user_id)
- VALUES (true, 1, 1);
-
- INSERT INTO admin (is_admin, works_for, user_id)
-VALUES (true, 1, 1);
  
  CREATE TABLE carte (
 	id INT PRIMARY KEY AUTO_INCREMENT,
@@ -50,9 +40,6 @@ VALUES (true, 1, 1);
    	is_dealt_by INT,
   	FOREIGN KEY(is_dealt_by) REFERENCES admin(user_id)
  );
-
- INSERT INTO carte (id, title, category, description, price, is_dealt_by)
- VALUES (1, 'salade test', 'salades', 'une salade', 11.50, 1 );
  
  CREATE TABLE foodmenu (
 	id INT PRIMARY KEY AUTO_INCREMENT,
@@ -79,9 +66,6 @@ VALUES (true, 1, 1);
    	FOREIGN KEY(category) REFERENCES gallery(id)
  );
 
- INSERT INTO photos (name, title, description, displayed_in)
-    VALUES ('bowl.jpg', 'Nos Salades', 'Salades', 1);
-
 CREATE TABLE timetables (
  	day_id TINYINT NOT NULL PRIMARY KEY,
   	opening_time_morning TIME,
@@ -95,28 +79,6 @@ CREATE TABLE timetables (
 	is_dealt_by INT,
   	FOREIGN KEY(is_dealt_by) REFERENCES admin(user_id)
  );
-
-INSERT INTO timetables (day_id, opening_time_morning, closing_time_morning, opening_time_evening, closing_time_evening, time_setting, is_dealt_by)
-VALUES (1, '12:00:00', '14:00:00', NULL, NULL, 1, 1);
-
-INSERT INTO timetables (day_id, opening_time_morning, closing_time_morning, opening_time_evening, closing_time_evening, time_setting, is_dealt_by)
-VALUES (2, '12:00:00', '14:00:00', '19:00:00', '22:00:00', 1, 1);
-
-INSERT INTO timetables (day_id, opening_time_morning, closing_time_morning, opening_time_evening, closing_time_evening, time_setting, is_dealt_by)
-VALUES (3, '12:00:00', '14:00:00', '19:00:00', '22:00:00', 1, 1);
-
-INSERT INTO timetables (day_id, opening_time_morning, closing_time_morning, opening_time_evening, closing_time_evening, time_setting, is_dealt_by)
-VALUES (4, NULL, NULL, NULL, NULL, 1, 1);
-
-INSERT INTO timetables (day_id, opening_time_morning, closing_time_morning, opening_time_evening, closing_time_evening, time_setting, is_dealt_by)
-VALUES (5, '12:00:00', '14:00:00', '19:00:00', '22:00:00', 1, 1);
-
-INSERT INTO timetables (day_id, opening_time_morning, closing_time_morning, opening_time_evening, closing_time_evening, time_setting, is_dealt_by)
-VALUES (6, '12:00:00', '14:00:00', '19:00:00', '22:00:00', 1, 1);
-
-INSERT INTO timetables (day_id, opening_time_morning, closing_time_morning, opening_time_evening, closing_time_evening, time_setting, is_dealt_by)
-VALUES (7, NULL, NULL, '19:00:00', '23:00:00', 1, 1);
-
  
  CREATE TABLE tables (
  	id INT NOT NULL PRIMARY KEY,
