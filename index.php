@@ -8,9 +8,9 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../Style/footer-style.css" rel="stylesheet" type="text/css" />
-    <link href="../Style/header-style.css" rel="stylesheet" type="text/css" />
-    <link href="../Style/index-style.css" rel="stylesheet" type="text/css" />
+    <link href="Style/footer-style.css" rel="stylesheet" type="text/css" />
+    <link href="Style/header-style.css" rel="stylesheet" type="text/css" />
+    <link href="Style/index-style.css" rel="stylesheet" type="text/css" />
     <title>Restaurant Quai Antique</title>
 </head>
 
@@ -18,15 +18,15 @@ session_start();
 <body>
   
     <?php
-        include "header.php";
+        include "Back/header.php";
     ?>
     <div class="frontPicture">
-        <img src="../photos/background.jpg" class="background-picture" alt="Salade">
-        <img src="../photos/m-background.jpg" class="m-background-picture" alt="Salade">
+        <img src="photos/background.jpg" class="background-picture" alt="Salade">
+        <img src="photos/m-background.jpg" class="m-background-picture" alt="Salade">
 
     </div>
     <div class="bloc1">
-        <img src="../photos/chef.jpg" class="imgB1" alt='Le Chef'>
+        <img src="photos/chef.jpg" class="imgB1" alt='Le Chef'>
         <div class="wrapper">        
             <h2>Le Restaurant</h2>
             <p>
@@ -44,21 +44,21 @@ session_start();
         <h2>Galerie</h2>
         <div class="group">
             <div class="container">
-                <img src="../photos/entree.jpg" class="zoom">
+                <img src="photos/entree.jpg" class="zoom">
                 <div class="middle">
                     <div class="text">Entrées</div>
                 </div>
             </div>
 
             <div class="container">
-                <img src="../photos/bowl.jpg" class="zoom">
+                <img src="photos/bowl.jpg" class="zoom">
                 <div class="middle">
                     <div class="text">Salades</div>
                 </div>
             </div>
 
             <div class="container">
-                <img src="../photos/desert.jpg" class="zoom">
+                <img src="photos/desert.jpg" class="zoom">
                 <div class="middle">
                     <div class="text">Desserts</div>
                 </div>
@@ -74,7 +74,7 @@ session_start();
 
 
 <?php
-    include "footer.php";
+    include "Back/footer.php";
 ?>
 
 
