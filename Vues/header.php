@@ -11,7 +11,7 @@ if (isset($_SESSION["user_id"])) {
     
 
     <nav class="navbar">
-        <a href="index.php" class="nav-branding">
+        <a href="../index.php" class="nav-branding">
             <img src="../photos/Logos/Logo Light.png" alt="Logo">
         </a>
 

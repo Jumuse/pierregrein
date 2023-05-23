@@ -1,7 +1,7 @@
 <?php
     
 if(isset($_POST['send'])){
-    $couverts=$_POST['couverts'];
+        $couverts=$_POST['couverts'];
        $date=$_POST['date'];
        $time=$_POST['time'];
        $name=$_POST['name'];

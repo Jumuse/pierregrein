@@ -4,5 +4,5 @@ session_start();
 
 session_destroy();
 
-header("Location: ../Vues/index.php");
+header("Location: ../index.php");
 exit;
